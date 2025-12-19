@@ -2,76 +2,148 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Humming - Start Humming, Make Glowing Memories</title>
-    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Montserrat:wght@300;800&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Humming - Your Travel Companion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            background: radial-gradient(circle at center, #4e4376 0%, #2b5876 100%);
-            height: 100vh;
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Tropical Beach Background */
+        .bg-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)), 
+                        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+
+        .container {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
-            color: white;
-            overflow: hidden;
-        }
-        .container {
+            height: 100vh;
             text-align: center;
-            animation: fadeIn 2s ease-in;
+            color: white;
+            text-shadow: 0 2px 15px rgba(0,0,0,0.2);
         }
-        h1 { 
-            font-family: 'Righteous', cursive;
-            font-size: 6rem; 
+
+        /* Main Logo: Script style in Nature Green */
+        .logo-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .main-logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 8rem;
             margin: 0;
-            letter-spacing: -2px;
-            background: linear-gradient(to bottom, #fff 30%, #ffda79 100%);
+            background: linear-gradient(to bottom, #a8e063, #2ecc71);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.2));
         }
+
+        .clover {
+            font-size: 3rem;
+            position: absolute;
+            right: -60px;
+            top: 30px;
+            filter: drop-shadow(0 0 15px rgba(168, 224, 99, 0.6));
+        }
+
         .slogan {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
+            margin: 20px 0 60px 0;
             font-weight: 300;
-            margin-top: 10px;
-            margin-bottom: 50px;
             letter-spacing: 2px;
-            text-transform: uppercase;
+            line-height: 1.6;
         }
-        .glow-text {
-            font-weight: 800;
-            color: #ffda79;
-            text-shadow: 0 0 15px rgba(255, 218, 121, 0.6);
+
+        /* Inline 'Humming' matching the logo style */
+        .humming-inline {
+            font-family: 'Dancing Script', cursive;
+            background: linear-gradient(to bottom, #a8e063, #2ecc71);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2rem;
+            padding: 0 5px;
+            font-weight: 700;
         }
-        button {
-            padding: 20px 60px;
-            font-size: 1.2rem;
-            background: white;
-            color: #2b5876;
+
+        .glowing {
+            color: #f1c40f;
+            font-weight: 700;
+            text-shadow: 0 0 20px rgba(241, 196, 15, 0.6);
+        }
+
+        /* 3D Glossy Button */
+        .btn-start {
+            padding: 22px 70px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: white;
+            background: linear-gradient(145deg, #2ecc71, #27ae60);
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            font-weight: 800;
-            transition: 0.4s;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            /* 3D Effect Depth */
+            box-shadow: 0 10px 0 #1e8449, 
+                        0 15px 35px rgba(0,0,0,0.3);
+            transition: all 0.15s ease;
         }
-        button:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+
+        .btn-start:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 0 #1e8449, 0 20px 40px rgba(0,0,0,0.4);
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+
+        .btn-start:active {
+            transform: translateY(8px);
+            box-shadow: 0 2px 0 #1e8449, 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .airplane {
+            display: inline-block;
+            margin-left: 10px;
+            font-size: 2rem;
+            animation: flying 4s ease-in-out infinite;
+        }
+
+        @keyframes flying {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(15px, -20px) rotate(10deg); }
         }
     </style>
 </head>
 <body>
+    <div class="bg-container"></div>
     <div class="container">
-        <h1>Humming ✈️</h1>
+        <div class="logo-wrapper">
+            <h1 class="main-logo">Humming</h1>
+            <span class="clover">🍀</span>
+        </div>
+
         <p class="slogan">
-            Start humming, <br>
-            make <span class="glow-text">glowing memories</span>
+            START <span class="humming-inline">Humming</span>,<br>
+            MAKE <span class="glowing">GLOWING MEMORIES</span>
+            <span class="airplane">✈️</span>
         </p>
-        <button>START JOURNEY</button>
+
+        <button class="btn-start">Start Journey</button>
     </div>
 </body>
 </html>
