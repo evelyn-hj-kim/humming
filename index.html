@@ -1,144 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Humming - Your Travel Companion</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
-    <style>
-        /* --- Basic Reset & Background --- */
-        body, html {
-            margin: 0; padding: 0; height: 100%; overflow: hidden; font-family: 'Montserrat', sans-serif;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Humming - Your Travel Companion</title>
 
-        /* Background Image */
-        .bg-container {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)), 
-                        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover; background-position: center; z-index: -1;
-        }
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
 
-        .container {
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            height: 100vh; text-align: center; color: white;
-        }
+  <style>
+    /* --- Basic Reset & Global Styles --- */
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Montserrat', sans-serif;
+    }
 
-        /* --- Logo & Slogan --- */
-        .logo-wrapper { position: relative; display: inline-block; }
-        .main-logo {
-            font-family: 'Dancing Script', cursive; font-size: 8rem; margin: 0;
-            background: linear-gradient(to bottom, #a8e063, #2ecc71);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.2));
-        }
-        .clover {
-            font-size: 3rem; position: absolute; right: -60px; top: 30px;
-            filter: drop-shadow(0 0 15px rgba(168, 224, 99, 0.6));
-        }
-        .slogan {
-            font-size: 1.5rem; margin: 20px 0 80px 0;
-            font-weight: 300; letter-spacing: 2px; line-height: 1.6;
-        }
-        .humming-inline {
-            font-family: 'Dancing Script', cursive; font-size: 2rem; padding: 0 5px; font-weight: 700;
-            background: linear-gradient(to bottom, #a8e063, #2ecc71);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-        .glowing { color: #f1c40f; font-weight: 700; text-shadow: 0 0 20px rgba(241, 196, 15, 0.6); }
+    /* Tropical Beach Background */
+    .bg-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)),
+        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+    }
 
-        /* =========================================
-           NEW: WIDER BLUE GRADIENT BUTTON
-        ========================================= */
-        .btn-container-frost {
-             position: relative;
-             display: inline-block;
-        }
+    /* Flex Container for Centering Content */
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      color: white;
+      text-shadow: 0 2px 15px rgba(0,0,0,0.2);
+    }
 
-        .btn-start-frost {
-            position: relative;
-            padding: 18px 70px 18px 40px; 
-            min-width: 320px;
-            
-            /* [핵심 변경] 그라데이션 범위 조정 */
-            /* 하늘색(#89cff0)이 0%에서 시작해 70% 지점까지 넓게 퍼지고, */
-            /* 그 이후부터 가장자리(100%)까지 흰색으로 급격하게 변함 */
-            background: radial-gradient(ellipse at center, #89cff0 0%, #b4e4ff 70%, rgba(255, 255, 255, 0.9) 100%);
-            
-            /* 테두리 없음 */
-            border: none;
-            border-radius: 60px;
-            
-            /* 테두리 부분의 흰색 빛 번짐 효과 */
-            box-shadow: 
-                0 0 25px rgba(255, 255, 255, 0.5), /* 외부 광채 */
-                inset 0 0 15px rgba(255, 255, 255, 0.4); /* 내부 가장자리 광채 */
+    /* --- Logo Section --- */
+    .logo-wrapper {
+      position: relative;
+      display: inline-block;
+    }
 
-            /* 유리/얼음 질감 */
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            
-            /* 단순한 글씨체 (Montserrat) */
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: white;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
-            
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
+    /* Main "Humming" Logo */
+    .main-logo {
+      font-family: 'Dancing Script', cursive;
+      font-size: 8rem;
+      margin: 0;
+      background: linear-gradient(to bottom, #a8e063, #2ecc71);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.2));
+    }
 
-        /* Hover Effect */
-        .btn-start-frost:hover {
-            transform: translateY(-2px);
-            /* 호버 시 파란색 영역이 더 밝아짐 */
-            background: radial-gradient(ellipse at center, #a3dbf5 0%, #cdf0ff 70%, rgba(255, 255, 255, 0.95) 100%);
-            box-shadow: 0 0 35px rgba(255, 255, 255, 0.7), inset 0 0 20px rgba(255, 255, 255, 0.5);
-        }
+    /* Clover Icon */
+    .clover {
+      font-size: 3rem;
+      position: absolute;
+      right: -60px;
+      top: 30px;
+      filter: drop-shadow(0 0 15px rgba(168, 224, 99, 0.6));
+    }
 
-        /* Floating Airplane Icon */
-        .airplane-floating {
-            position: absolute;
-            right: 25px; 
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1.8rem; 
-            
-            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9));
-            
-            animation: floatPlane 3s ease-in-out infinite;
-            pointer-events: none; 
-        }
+    /* --- Slogan Section --- */
+    .slogan {
+      font-size: 1.5rem;
+      margin: 20px 0 60px 0;
+      font-weight: 300;
+      letter-spacing: 2px;
+      line-height: 1.6;
+    }
 
-        @keyframes floatPlane {
-            0%, 100% { transform: translateY(-50%) rotate(10deg); }
-            50% { transform: translateY(-65%) rotate(5deg); }
-        }
-    </style>
+    /* Inline "Humming" in Slogan */
+    .humming-inline {
+      font-family: 'Dancing Script', cursive;
+      background: linear-gradient(to bottom, #a8e063, #2ecc71);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 2rem;
+      padding: 0 5px;
+      font-weight: 700;
+    }
+
+    /* Highlighted Text "GLOWING MEMORIES" */
+    .glowing {
+      color: #f1c40f;
+      font-weight: 700;
+      text-shadow: 0 0 20px rgba(241, 196, 15, 0.6);
+    }
+
+    /* =========================================
+       Primary Call-to-Action Button
+    ========================================= */
+
+    .btn-start {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      /* Balanced spacing: shifts text slightly right, reserves space for the airplane */
+      padding: 16px 64px;
+      padding-left: 90px;
+      padding-right: 110px;
+      min-width: 320px;
+
+      /* Light blue "glass" look */
+      background: linear-gradient(135deg, rgba(135, 206, 235, 0.80), rgba(176, 224, 230, 0.90));
+
+      border: 3px solid rgba(255, 255, 255, 0.95);
+      border-radius: 50px;
+
+      box-shadow:
+        0 0 25px 5px rgba(255, 255, 255, 0.7),
+        inset 0 0 15px rgba(255, 255, 255, 0.5);
+
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+
+      /* Script text */
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: white;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 1);
+
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-start:hover {
+      transform: scale(1.03);
+      box-shadow:
+        0 0 35px 10px rgba(255, 255, 255, 0.8),
+        inset 0 0 25px rgba(255, 255, 255, 0.6);
+      background: linear-gradient(135deg, rgba(155, 226, 255, 0.90), rgba(196, 244, 250, 0.95));
+    }
+
+    .btn-start:active {
+      transform: scale(0.99);
+    }
+
+    /* Airplane icon inside the button (right side), gently floating */
+    .btn-start .airplane-floating {
+      position: absolute;
+      right: 43px; /* moved slightly left */
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2.3rem;
+      filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9));
+      animation: floatPlane 3s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes floatPlane {
+      0%, 100% { transform: translateY(-50%) rotate(10deg); }
+      50% { transform: translateY(-65%) rotate(5deg); }
+    }
+  </style>
 </head>
+
 <body>
-    <div class="bg-container"></div>
-    <div class="container">
-        <div class="logo-wrapper">
-            <h1 class="main-logo">Humming</h1>
-            <span class="clover">🍀</span>
-        </div>
+  <div class="bg-container"></div>
 
-        <p class="slogan">
-            START <span class="humming-inline">Humming</span>,<br>
-            MAKE <span class="glowing">GLOWING MEMORIES</span>
-        </p>
-
-        <div class="btn-container-frost">
-            <button class="btn-start-frost">
-                Start Journey
-            </button>
-            <span class="airplane-floating">✈️</span>
-        </div>
+  <div class="container">
+    <div class="logo-wrapper">
+      <h1 class="main-logo">Humming</h1>
+      <span class="clover">🍀</span>
     </div>
+
+    <p class="slogan">
+      START <span class="humming-inline">Humming</span>,<br>
+      MAKE <span class="glowing">GLOWING MEMORIES</span>
+    </p>
+
+    <button class="btn-start" aria-label="Start Journey">
+      Start Journey
+      <span class="airplane-floating" aria-hidden="true">✈️</span>
+    </button>
+  </div>
 </body>
 </html>
